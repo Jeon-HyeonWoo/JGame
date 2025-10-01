@@ -3,4 +3,21 @@
 #include "JGame.h"
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, JGame, "JGame" );
+class FJGameModule : public FDefaultGameModuleImpl
+{
+public:
+
+	virtual void StartupModule() override
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Module Startup Test"));
+	}
+
+	virtual void ShutdownModule() override
+	{
+
+	}
+};
+
+
+
+IMPLEMENT_PRIMARY_GAME_MODULE(FJGameModule, JGame, "JGame");
