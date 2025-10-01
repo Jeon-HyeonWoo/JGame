@@ -1,0 +1,12 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "Containers/UnrealString.h"
+#include "Logging/LogMacros.h"
+
+//extern struct FLogCategoryJLog : public FLogCategory
+DECLARE_LOG_CATEGORY_EXTERN(JLog, Log, All);
+/**
+ * 
+ */

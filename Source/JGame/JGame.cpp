@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "JGame.h"
+#include "JLogChannels.h"
 #include "Modules/ModuleManager.h"
 
 class FJGameModule : public FDefaultGameModuleImpl
@@ -9,7 +10,7 @@ public:
 
 	virtual void StartupModule() override
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Module Startup Test"));
+		UE_LOG(JLog, Warning, TEXT("Module Startup Test"));
 	}
 
 	virtual void ShutdownModule() override
