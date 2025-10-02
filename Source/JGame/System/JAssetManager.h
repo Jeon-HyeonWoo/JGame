@@ -16,7 +16,15 @@ class JGAME_API UJAssetManager : public UAssetManager
 	
 public:
 
+	//Constructor
 	UJAssetManager();
 
+	//Singleton Getter
 	static UJAssetManager& Get();
+
+	//Project Property -> Debugging -> Command Arguments -> Add Command Line
+	//to determine to use FScopeLogTime
+	static bool ShouldLogAssetLoads();
+
+	static UObject* SynchronousLoadAsset(const FSoftObjectPath& AssetPath);
 };
