@@ -8,6 +8,11 @@ UJAssetManager::UJAssetManager()
 {
 }
 
+void UJAssetManager::StartInitialLoading()
+{
+	Super::StartInitialLoading();
+}
+
 UJAssetManager& UJAssetManager::Get()
 {
 	check(GEngine);
@@ -57,4 +62,13 @@ UObject* UJAssetManager::SynchronousLoadAsset(const FSoftObjectPath& AssetPath)
 	}
 
 	return nullptr;
+}
+
+void UJAssetManager::AddLoadedAsset(const UObject* Asset)
+{
+	if (ensureAlways(Asset))
+	{
+		FScopeLock Lock(&SyncObject);
+		LoadedAssets.Add(Asset);
+	}
 }
