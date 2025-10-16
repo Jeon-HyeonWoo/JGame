@@ -3,19 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/GameModeBase.h"
-#include "JGameModeBase.generated.h"
+#include "GameFramework/PlayerController.h"
+#include "JPlayerController.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class JGAME_API AJGameModeBase : public AGameModeBase
+class JGAME_API AJPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-
-public:
-
-	AJGameModeBase();
 	
 };
