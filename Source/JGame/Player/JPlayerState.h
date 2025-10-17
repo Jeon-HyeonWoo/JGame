@@ -6,6 +6,10 @@
 #include "GameFramework/PlayerState.h"
 #include "JPlayerState.generated.h"
 
+
+class UJExperienceDefinition;
+class UJPawnData;
+
 /**
  * 
  */
@@ -14,4 +18,14 @@ class JGAME_API AJPlayerState : public APlayerState
 {
 	GENERATED_BODY()
 	
+public:
+
+	virtual void PostInitializeComponents() final;
+
+	void OnExperienceLoaded(const UJExperienceDefinition* CurrentExperience);
+
+public:
+
+	UPROPERTY()
+	TObjectPtr<const UJPawnData> PawnData;
 };

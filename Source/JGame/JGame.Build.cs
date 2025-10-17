@@ -8,7 +8,11 @@ public class JGame : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput",
+			"GameplayTags",		//GameAbilitySystem
+			"ModularGameplay"	//GameFeatures
+		
+		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 

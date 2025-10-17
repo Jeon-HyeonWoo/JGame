@@ -6,6 +6,8 @@
 #include "GameFramework/GameStateBase.h"
 #include "JGameStateBase.generated.h"
 
+class UJExperienceManagerComponent;
+
 /**
  * 
  */
@@ -14,4 +16,12 @@ class JGAME_API AJGameStateBase : public AGameStateBase
 {
 	GENERATED_BODY()
 	
+public:
+
+	AJGameStateBase();
+
+
+public:
+	UPROPERTY()
+	TObjectPtr<UJExperienceManagerComponent> ExperienceManagerComponent;
 };

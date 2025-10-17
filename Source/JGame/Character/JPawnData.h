@@ -17,4 +17,10 @@ class JGAME_API UJPawnData : public UPrimaryDataAsset
 public:
 
 	UJPawnData(const FObjectInitializer& ObjecetInitializer = FObjectInitializer::Get());
+
+
+public:
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "JGame|Pawn")
+	TSubclassOf<APawn> PawnClass;
 };
