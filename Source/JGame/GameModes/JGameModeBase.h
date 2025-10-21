@@ -25,10 +25,23 @@ public:
 	virtual void InitGameState() override;
 
 public:
+
+	/*
+	* HandleStartingNewPlayer
+	* Signals that player is ready to enter the game
+	*/
+	virtual void HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer) final;
+	/*
+	* SpawnDefaultPawnAtTransForm
+	*/
+	virtual APawn* SpawnDefaultPawnAtTransform_Implementation(AController* NewPlayer, const FTransform& SpawnTransform) final;
+
 	/*
 	* member method
 	*/
 	void HandleMatchAssignmentIfNotExpectingOne();
+	bool IsExperienceLoaded() const;
 	void OnExperienceLoaded(const UJExperienceDefinition* CurrentExperience);
 
+	
 };

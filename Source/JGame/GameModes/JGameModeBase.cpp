@@ -7,6 +7,7 @@
 #include "JGame/Player/JPlayerController.h"
 #include "JGame/Character/JCharacter.h"
 #include "JExperienceManagerComponent.h"
+#include "JGame/JLogChannels.h"
 
 AJGameModeBase::AJGameModeBase()
 {
@@ -36,9 +37,35 @@ void AJGameModeBase::InitGameState()
 	ExperienceManagerComponent->CallOrRegister_OnExperienceLoaded(FOnJExperienceLoaded::FDelegate::CreateUObject(this, &ThisClass::OnExperienceLoaded));
 }
 
+void AJGameModeBase::HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer)
+{
+	/*
+	*  Experience is not loaded, player can not enter the game
+	*/
+	if (IsExperienceLoaded())
+	{
+		Super::HandleStartingNewPlayer_Implementation(NewPlayer);
+	}
+}
+
+APawn* AJGameModeBase::SpawnDefaultPawnAtTransform_Implementation(AController* NewPlayer, const FTransform& SpawnTransform)
+{
+	UE_LOG(JLog, Log, TEXT("SpawnDefaultPawnAtTransform_Implementation is called!"));
+	return Super::SpawnDefaultPawnAtTransform_Implementation(NewPlayer, SpawnTransform);
+}
+
 void AJGameModeBase::HandleMatchAssignmentIfNotExpectingOne()
 {
 
+}
+
+bool AJGameModeBase::IsExperienceLoaded() const
+{
+	check(GameState);
+	UJExperienceManagerComponent* ExperienceManagerComponent = GameState->FindComponentByClass<UJExperienceManagerComponent>();
+	check(ExperienceManagerComponent);
+
+	return ExperienceManagerComponent->IsExperienceLoaded();
 }
 
 void AJGameModeBase::OnExperienceLoaded(const UJExperienceDefinition* CurrentExperience)
