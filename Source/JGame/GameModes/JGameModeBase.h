@@ -40,6 +40,7 @@ public:
 	* member method
 	*/
 	void HandleMatchAssignmentIfNotExpectingOne();
+	void OnMatchAssignmentGiven(FPrimaryAssetId ExperienceId);
 	bool IsExperienceLoaded() const;
 	void OnExperienceLoaded(const UJExperienceDefinition* CurrentExperience);
 

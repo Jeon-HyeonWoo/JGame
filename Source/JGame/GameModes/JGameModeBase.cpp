@@ -56,7 +56,26 @@ APawn* AJGameModeBase::SpawnDefaultPawnAtTransform_Implementation(AController* N
 
 void AJGameModeBase::HandleMatchAssignmentIfNotExpectingOne()
 {
+	FPrimaryAssetId ExperienceId;
 
+	UWorld* World = GetWorld();
+
+	if (!ExperienceId.IsValid())
+	{
+		ExperienceId = FPrimaryAssetId(FPrimaryAssetType("JExperienceDefinition"), FName("B_DefaultExperience"));
+	}
+
+	OnMatchAssignmentGiven(ExperienceId);
+}
+
+void AJGameModeBase::OnMatchAssignmentGiven(FPrimaryAssetId ExperienceId)
+{
+	check(ExperienceId.IsValid());
+
+	UJExperienceManagerComponent* ExperienceManagerComponent = GameState->GetComponentByClass<UJExperienceManagerComponent>();
+	check(ExperienceManagerComponent);
+
+	ExperienceManagerComponent->ServerSetCurrentExperience(ExperienceId);
 }
 
 bool AJGameModeBase::IsExperienceLoaded() const

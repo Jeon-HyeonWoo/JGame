@@ -33,6 +33,14 @@ public:
 
 
 	void CallOrRegister_OnExperienceLoaded(FOnJExperienceLoaded::FDelegate&& Delegate);
+
+	void ServerSetCurrentExperience(FPrimaryAssetId ExperienceId);
+
+	void StartExperienceLoad();
+
+	void OnExperienceLoadComplete();
+
+	void OnExperienceFullLoadCompleted();
 public:
 
 	UPROPERTY()
