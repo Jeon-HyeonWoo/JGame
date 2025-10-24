@@ -11,9 +11,8 @@ public class JGame : ModuleRules
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput",
 			"GameplayTags",		//GameAbilitySystem
 			"ModularGameplay",	//GameFeatures
-			"GameFeatures"
-		
-		});
+			"GameFeatures",
+        });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
