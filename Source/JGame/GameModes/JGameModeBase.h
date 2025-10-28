@@ -7,6 +7,7 @@
 #include "JGameModeBase.generated.h"
 
 class UJExperienceDefinition;
+class UJPawnData;
 /**
  * 
  */
@@ -35,6 +36,10 @@ public:
 	* SpawnDefaultPawnAtTransForm
 	*/
 	virtual APawn* SpawnDefaultPawnAtTransform_Implementation(AController* NewPlayer, const FTransform& SpawnTransform) final;
+	/*
+	* GetDefaultPawnClassForController
+	*/
+	virtual UClass* GetDefaultPawnClassForController_Implementation(AController* InController) final;
 
 	/*
 	* member method
@@ -43,6 +48,7 @@ public:
 	void OnMatchAssignmentGiven(FPrimaryAssetId ExperienceId);
 	bool IsExperienceLoaded() const;
 	void OnExperienceLoaded(const UJExperienceDefinition* CurrentExperience);
+	const UJPawnData* GetPawnDataForController(const AController* InController) const;
 
 	
 };

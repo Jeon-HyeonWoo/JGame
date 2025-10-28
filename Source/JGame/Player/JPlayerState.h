@@ -20,9 +20,19 @@ class JGAME_API AJPlayerState : public APlayerState
 	
 public:
 
+	/*
+	* AActor's Interface
+	*/
 	virtual void PostInitializeComponents() final;
 
+
+	/*
+	* member method
+	*/
+	template<class T>
+	const T* GetPawnData() const { return Cast<T>(PawnData); }
 	void OnExperienceLoaded(const UJExperienceDefinition* CurrentExperience);
+	void SetPawnData(const UJPawnData* InPawnData);
 
 public:
 

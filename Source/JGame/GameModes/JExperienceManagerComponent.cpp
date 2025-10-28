@@ -111,3 +111,10 @@ void UJExperienceManagerComponent::OnExperienceFullLoadCompleted()
 	OnExperienceLoaded.Broadcast(CurrentExperience);
 	OnExperienceLoaded.Clear();
 }
+
+const UJExperienceDefinition* UJExperienceManagerComponent::GetCurrentExperienceChecked() const
+{
+	check(LoadState == EJExperienceLoadState::Loaded);
+	check(CurrentExperience != nullptr);
+	return CurrentExperience;
+}
